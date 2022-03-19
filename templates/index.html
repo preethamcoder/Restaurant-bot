@@ -142,6 +142,8 @@
         align-items: center;
         justify-content: center;
         height: 100vh;
+        overflow-y: hidden;
+        overflow-x: hidden;
       }
 
       h2 {
@@ -160,14 +162,11 @@
         border-radius: 5px;
         background-color: rgba(255, 255, 255, 0.15);
         backdrop-filter: blur(5px);
-        margin-bottom: 300px;
+
+        overflow-y: scroll;
       }
 
       .input-container {
-        width: 100%;
-        display: flex;
-        position: absolute;
-        bottom: 0;
         /* 	justify-content:center;
 	align-content:center; */
 
@@ -205,29 +204,53 @@
       }
 
       .input {
-        width: 90%;
         background: rgba(0, 0, 0, 0.05);
         border: none;
         outline: none;
         color: white;
         font-size: 0.9rem;
         font-family: "Prompt", sans-serif;
+        width: 100%;
       }
 
       .input[type="text"]::placeholder {
         font-family: "Prompt", sans-serif;
         color: white;
       }
+      /* width */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
 
       .con {
         display: flex;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
+        /* position: absolute; */
+        /* bottom: 0;
+        width: 100%; */
       }
 
       .image {
         height: 150px;
+      }
+
+      .wrapper {
+        margin-bottom: 300px;
+        /* border: 10px white solid; */
       }
     </style>
   </head>
@@ -238,7 +261,9 @@
         <h2>Welcome to Restro</h2>
       </div>
     </center>
-    <div class="container" id="chatbox">
+
+    <div class="wrapper">
+      <div class="container" id="chatbox"></div>
       <div class="input-container">
         <div class="con">
           <input
@@ -254,6 +279,7 @@
         </div>
       </div>
     </div>
+
     <script>
       function getBotResponse() {
         var rawText = $("#nameInput").val();
