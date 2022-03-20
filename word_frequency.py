@@ -1,12 +1,11 @@
 from nltk.tokenize import RegexpTokenizer
 
-text = open("dataset.json", "r")
-d = dict()
+txt = open("dataset.json", "r")
+d = {}
 
-for line in text:
+for line in txt:
     line = line.strip()
     line = line.lower()
-
     tokenizer = RegexpTokenizer(r'\w+')
     words = tokenizer.tokenize(line)
     for word in words:
