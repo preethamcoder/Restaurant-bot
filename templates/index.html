@@ -1,29 +1,225 @@
 <!DOCTYPE html>
 <html>
-  <title>Cento's Restaurant!</title>
+  <title>Restaurant Chatbot</title>
   <head>
-    <link rel="icon" href="">
+    <link rel="icon" href="" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500&amp;display=swap" rel="stylesheet">
     <style>
       body {
+        background: linear-gradient(to right, #4b6cb7, #182848);
+        background-size: cover;
+
+        height: 100vh;
+        overflow-y: hidden;
+        overflow-x: hidden;
+      }
+
+      .page-container {
+        height: 100%;
+      }
+
+      .page-header {
+        margin: 0 auto;
+        text-align: center;
+        width: 40%;
+      }
+
+      .page-header .image {
+        height: 160px;
+        margin-bottom: -50px;
+      }
+
+      .page-header h2 {
+        color: white;
+        font-size: 2rem;
+        font-family: "Prompt", sans-serif;
+      }
+
+      .page-header h4 {
+        color: white;
+        font-size: 1rem;
+        font-family: "Prompt", sans-serif;
+        font-size: 200;
+      }
+
+      .container {
+        width: 30rem;
+        height: 20rem;
+        box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(5px);
+        margin-bottom: 300px;
+        margin: 0 auto;
+        overflow-y: scroll;
+      }
+
+
+      .userText {
+        width: fit-content;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        color: white;
+        background-color: #ff9351;
+        font-family: "Helvetica";
+        font-size: 12px;
+        margin-left: auto;
+        margin-right: 0;
+        line-height: 20px;
+        border-radius: 5px;
+        text-align: left;
+      }
+      .userText span {
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .botText {
+        margin-left: 0;
+        margin-right: auto;
+        width: fit-content;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        color: white;
+        background-color: #00c2cb;
+        font-family: "Helvetica";
+        font-size: 12px;
+        line-height: 20px;
+        text-align: left;
+        border-radius: 5px;
+      }
+      .botText span {
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .boxed {
+       
+        width: 30rem;
+        margin: 0 auto;
+
+        
+      }
+
+      .button-1 {
+        margin: auto 0;
+        background-color: #4b6cb7;
+        height: 100%;
+        border: none;
+        color: white;
+        border-bottom-right-radius: 5px;
+        font-size: 15px;
+        font-family: "Prompt", sans-serif;
+        cursor: pointer;
+      }
+
+
+      .input-container {
+        width: 100%;
+      }
+
+      .input {
+        background: rgba(0, 0, 0, 0.05);
+        border: none;
+        outline: none;
+        color: white;
+        font-size: 0.9rem;
+        font-family: "Prompt", sans-serif;
+        width: 99%;
+      }
+
+      .input[type="text"]::placeholder {
+        font-family: "Prompt", sans-serif;
+        color: white;
+      }
+
+      .input-wrapper {
+        display: flex;
+        width: 100%;
+      }
+
+      #userInput {
+        width: 100%;
+      }
+
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        background-color: rgba(255, 255, 255, 0);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+        background: rgba(0, 0, 0, 0.05);
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+
+      .button-container {
+        /*  height:30%; */
+
+        /*  position: absolute;
+  bottom:0; */
+
+        /*  display:flex;
+  justify-content:center;
+  align-content:center;
+  position:absolute;
+  bottom:0;
+  right:0; */
+      }
+
+      /* .button-1 {
+        margin: auto 0;
+        background-color: #4b6cb7;
+        height: 100%;
+        border: none;
+        color: white;
+        border-bottom-right-radius: 5px;
+        font-size: 15px;
+        font-family: "Prompt", sans-serif;
+      } */
+
+      /* .button-1:hover {
+        opacity: 80%;
+        cursor: pointer;
+      } */
+
+      /* .input {
+        background: rgba(0, 0, 0, 0.05);
+        border: none;
+        outline: none;
+        color: white;
+        font-size: 0.9rem;
+        font-family: "Prompt", sans-serif;
+        width: 100%;
+      } */
+
+      
+      /* body {
         font-family: monospace;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         background-attachment: fixed;
-		background-image: linear-gradient(#f7797d, #FFF200, #22c1c3);
       }
       h2 {
         background-color: white;
         border: 2px solid black;
         border-radius: 5px;
-        color: #03989E;
-        display: inline-block;Helvetica
+        color: #03989e;
+        display: inline-block;
         margin: 5px;
         padding: 5px;
       }
-      h4{
-      position: center;
+      h4 {
+        position: center;
       }
       #chatbox {
         margin-top: 10px;
@@ -31,9 +227,8 @@
         margin-left: auto;
         margin-right: auto;
         width: 40%;
-        height: 40%
-        position:fixed;
-
+        height: 40%;
+        position: fixed;
       }
       #userInput {
         margin-left: auto;
@@ -45,48 +240,12 @@
         width: 90%;
         border: none;
         border-bottom: 3px solid black;
-        font-family: 'Helvetica';
+        font-family: "Helvetica";
         font-size: 17px;
-      }
-      .userText {
-        width:fit-content; width:-webkit-fit-content; width:-moz-fit-content;
-        color: white;
-        background-color: #00FF00;
-        font-family: 'Helvetica';
-        font-size: 12px;
-        margin-left: auto;
-        margin-right: 0;
-        line-height: 20px;
-        border-radius: 5px;
-        text-align: left;
-      }
-      .userText span {
-        padding:10px;
-        border-radius: 5px;
-      }
-      .botText {
-        margin-left: 0;
-        margin-right: auto;
-        width:fit-content; width:-webkit-fit-content; width:-moz-fit-content;
-        color: white;
-        background-color: #8a2be2;
-        font-family: 'Helvetica';
-        font-size: 12px;
-        line-height: 20px;
-        text-align: left;
-        border-radius: 5px;
-      }
-      .botText span {
-        padding: 10px;
-        border-radius: 5px;
-      }
-      .boxed {
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-        border-radius: 5px;
-      }
-      input[type=text] {
+      } */
+     
+      /*
+      input[type="text"] {
         bottom: 0;
         width: 40%;
         padding: 12px 20px;
@@ -94,51 +253,96 @@
         box-sizing: border-box;
         position: fixed;
         border-radius: 5px;
-      }
+      } */
     </style>
   </head>
-  <!--<body background="{{ url_for('static', filename='images/slider.jpg') }}">-->
-  <body>
-    <img />
-    <center>
-      <h2>
-      Welcome to Cento's Restaurant
-      </h2>
-      <h4>
-        You're talking to Saanya, our Customer Support bot!
-      </h4>
-    </center>
-    <div class="boxed">
-      <div>
-        <div id="chatbox">
-        </div>
+  <body background="{{ url_for('static', filename='images/slider.jpg') }}">
+    <div class="page-container">
+
+      <div class="page-header">
+        <img class="image" src="Restro.svg" />
+        <h2>Welcome to Cento's Restaurant</h2>
+        <h4>You're talking to Saanya, our Customer Support bot!</h4>
       </div>
-        <div id="userInput">
-          <input id="nameInput" type="text" name="msg" placeholder="Alright, wassup?" />
+
+      <div class="boxed">
+        <!-- <div class="container" id="chatbox"></div>
+        <div class="con">
+          <div class="input-container" id="userInput">
+            <input
+              id="nameInput"
+              type="text"
+              name="msg"
+              placeholder="Alright, wassup?"
+              class="input"
+            />
+
+            <div class="button-container">
+              <button class="button-1">Send</button>
+            </div>
+          </div>
+        </div> -->
+
+        <div>
+          <div class="container" id="chatbox"></div>
         </div>
-<script>
-        function getBotResponse() {
-          var rawText = $("#nameInput").val();
-          var userHtml = '<p class="userText"><span><b>' + "You : " + '</b>' + rawText + "</span></p>";
-          $("#nameInput").val("");
-          $("#chatbox").append(userHtml);
-          document
-            .getElementById("userInput")
-            .scrollIntoView({ block: "start", behavior: "smooth" });
-          $.get("/get", { msg: rawText }).done(function(data) {
-            var botHtml = '<p class="botText"><span><b>' + "Saanya : " + '</b>' + data + "</span></p>";
-            $("#chatbox").append(botHtml);
+     
+        <div class="input-container">
+          <div class="input-wrapper">
+            <div id="userInput">
+              <input
+                id="nameInput"
+                type="text"
+                name="msg"
+                placeholder="Ask me anything..."
+                class="input"
+              />
+            </div>
+
+            <div class="button-container">
+              <button class="button-1">Send</button>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          function getBotResponse() {
+            var rawText = $("#nameInput").val();
+            var userHtml =
+              '<p class="userText"><span><b>' +
+              "You : " +
+              "</b>" +
+              rawText +
+              "</span></p>";
+            $("#nameInput").val("");
+            $("#chatbox").append(userHtml);
             document
               .getElementById("userInput")
               .scrollIntoView({ block: "start", behavior: "smooth" });
-          });
-        }
-        $("#nameInput").keypress(function(e) {
-          if (e.which == 13) {
-            getBotResponse();
+            $.get("/get", { msg: rawText }).done(function (data) {
+              var botHtml =
+                '<p class="botText"><span><b>' +
+                "Restrobot : " +
+                "</b>" +
+                data +
+                "</span></p>";
+              $("#chatbox").append(botHtml);
+              document
+                .getElementById("userInput")
+                .scrollIntoView({ block: "start", behavior: "smooth" });
+            });
           }
-        });
-</script>
-</div>
-</body>
+          $("#nameInput").keypress(function (e) {
+            if (e.which == 13) {
+              getBotResponse();
+            }
+          });
+
+          $(".button-1").click(() => {
+            getBotResponse();
+          });
+        </script>
+      </div>
+    </div>
+  </body>
 </html>
