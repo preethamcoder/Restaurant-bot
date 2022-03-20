@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <title>Restaurant Chatbot</title>
+  <title>Cento's Restaurant!</title>
   <head>
     <link rel="icon" href="">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -11,6 +11,7 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-attachment: fixed;
+		background-image: linear-gradient(#f7797d, #FFF200, #22c1c3);
       }
       h2 {
         background-color: white;
@@ -50,7 +51,7 @@
       .userText {
         width:fit-content; width:-webkit-fit-content; width:-moz-fit-content;
         color: white;
-        background-color: #FF9351;
+        background-color: #00FF00;
         font-family: 'Helvetica';
         font-size: 12px;
         margin-left: auto;
@@ -68,7 +69,7 @@
         margin-right: auto;
         width:fit-content; width:-webkit-fit-content; width:-moz-fit-content;
         color: white;
-        background-color: #00C2CB;
+        background-color: #8a2be2;
         font-family: 'Helvetica';
         font-size: 12px;
         line-height: 20px;
@@ -96,7 +97,8 @@
       }
     </style>
   </head>
-  <body background="{{ url_for('static', filename='images/slider.jpg') }}">
+  <!--<body background="{{ url_for('static', filename='images/slider.jpg') }}">-->
+  <body>
     <img />
     <center>
       <h2>
@@ -124,7 +126,7 @@
             .getElementById("userInput")
             .scrollIntoView({ block: "start", behavior: "smooth" });
           $.get("/get", { msg: rawText }).done(function(data) {
-            var botHtml = '<p class="botText"><span><b>' + "Restrobot : " + '</b>' + data + "</span></p>";
+            var botHtml = '<p class="botText"><span><b>' + "Saanya : " + '</b>' + data + "</span></p>";
             $("#chatbox").append(botHtml);
             document
               .getElementById("userInput")
