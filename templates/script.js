@@ -7,7 +7,7 @@ function getBotResponse() {
             .getElementById("userInput")
             .scrollIntoView({ block: "start", behavior: "smooth" });
           $.get("/get", { msg: rawText }).done(function(data) {
-            var botHtml = '<p class="botText"><span><b>' + "Centobot : " + '</b>' + data + "</span></p>";
+            var botHtml = '<p class="botText"><span><b>' + "Saanya : " + '</b>' + data + "</span></p>";
             $("#chatbox").append(botHtml);
             document
               .getElementById("userInput")
