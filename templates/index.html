@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <title>Restaurant Chatbot</title>
+  <title>Cento Chatbot</title>
   <head>
     <link rel="icon" href="" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,7 @@
         scroll-behavior: smooth;
       }
       body {
-        background: linear-gradient(to right, #4b6cb7, #182848);
+        background: linear-gradient(#f7797d, #FFF200, #22c1c3);
         background-size: cover;
 
         height: 100vh;
@@ -32,18 +32,18 @@
       }
 
       .page-header .image {
-        height: 160px;
+        height: 80px;
         margin-bottom: -50px;
       }
 
       .page-header h2 {
-        color: white;
+        color: black;
         font-size: 2rem;
         font-family: "Prompt", sans-serif;
       }
 
       .page-header h4 {
-        color: white;
+        color: black;
         font-size: 1rem;
         font-family: "Prompt", sans-serif;
         font-size: 200;
@@ -260,7 +260,7 @@
       } */
     </style>
   </head>
-  <body background="{{ url_for('static', filename='images/slider.jpg') }}">
+  <body>
     <div class="page-container">
 
       <div class="page-header">
@@ -280,7 +280,6 @@
               placeholder="Alright, wassup?"
               class="input"
             />
-
             <div class="button-container">
               <button class="button-1">Send</button>
             </div>
@@ -298,7 +297,7 @@
                 id="nameInput"
                 type="text"
                 name="msg"
-                placeholder="Ask me anything..."
+                placeholder="How can I help?"
                 class="input"
               />
             </div>
@@ -328,7 +327,7 @@
             $.get("/get", { msg: rawText }).done(function (data) {
               var botHtml =
                 '<p class="botText"><span><b>' +
-                "Restrobot : " +
+                "Saanya : " +
                 "</b>" +
                 data +
                 "</span></p>";
